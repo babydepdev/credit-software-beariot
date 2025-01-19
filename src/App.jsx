@@ -12,7 +12,11 @@ const App = () => {
   const fetchData = async () => {
     try {
       const fetchPromises = PackageItem.map(async (item) => {
-        const response = await fetch(item.licenseApiUrl)
+        const response = await fetch(item.licenseApiUrl,{
+          headers: {
+            'Authorization': 'Bearer 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'
+          }
+        })
         const data = await response.json()
 
         if (data.content) {
@@ -35,6 +39,8 @@ const App = () => {
       })
 
       const results = await Promise.all(fetchPromises)
+      results.sort((a, b) => a.title.localeCompare(b.title))
+
       setLicenses(results)
     } catch (error) {
       console.error("Error fetching license:", error)
@@ -44,7 +50,6 @@ const App = () => {
   const toggleLicense = (index) => {
     setOpenIndex(openIndex === index ? null : index)
   }
-  console.log(licenses)
   return (
     <div className='p-4'>
       <h1 className='text-2xl mb-4'>Package Licenses</h1>

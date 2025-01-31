@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import PackageItem from './utils/PackageItem.jsx'
-
+import { LindePackageItem } from './utils/LindePackageItem'
+import { IoTDesignPackageItem } from './utils/IoTDesignPackageItem'
 const App = () => {
   const [licenses, setLicenses] = useState([])
   const [openIndex, setOpenIndex] = useState(null)
@@ -11,8 +11,8 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const fetchPromises = PackageItem.map(async (item) => {
-        const response = await fetch(item.licenseApiUrl,{
+      const fetchPromises = IoTDesignPackageItem.map(async (item) => {
+        const response = await fetch(item.licenseApiUrl, {
           headers: {
             'Authorization': 'Bearer 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'
           }

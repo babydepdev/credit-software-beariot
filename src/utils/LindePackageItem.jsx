@@ -1,5 +1,6 @@
 
-const PackageItem = [
+export const LindePackageItem = [
+    //backend
     {
         title: "@grpc/grpc-js",
         version: "1.11.1",
@@ -96,6 +97,7 @@ const PackageItem = [
         licenseApiUrl: "https://api.github.com/repos/tjgq/node-stream-throttle/license",
         repositoryUrl: "https://github.com/tjgq/node-stream-throttle",
     },
+    //frontend
     {
         title: "@azure/msal-browser",
         version: "3.17.0",
@@ -331,5 +333,3 @@ const PackageItem = [
         repositoryUrl: "https://github.com/SheetJS/sheetjs",
     },
 ]
-
-export default PackageItem
